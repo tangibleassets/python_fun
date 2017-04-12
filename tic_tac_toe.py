@@ -13,8 +13,11 @@
 my_board = {1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' ', 7: ' ', 8: ' ', 9: ' '}
 game_over = False
 
+import os
+
 
 def print_board(v):
+    os.system('clear')
     print '-----------------------'
     print ' ' + v[1] + ' | ' + v[2] + ' | ' + v[3] + '       1|2|3'
     print '-----------      ------'
