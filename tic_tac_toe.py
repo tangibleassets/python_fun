@@ -17,7 +17,7 @@ import os
 
 
 def print_board(v):
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print '-----------------------'
     print ' ' + v[1] + ' | ' + v[2] + ' | ' + v[3] + '       1|2|3'
     print '-----------      ------'
