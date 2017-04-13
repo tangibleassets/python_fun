@@ -69,7 +69,6 @@ def yes_lets_play():
     return raw_input("Would you like to play a game? y/n:").lower().startswith('y')
 
 
-
 def get_int_1_to_9(prompt):
     while True:
         try:
@@ -117,4 +116,3 @@ while yes_lets_play():
             break
 else:
     print 'Thanks for playing - have a nice day!'
-
