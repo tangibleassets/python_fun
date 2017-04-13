@@ -69,15 +69,48 @@ def yes_lets_play():
     return raw_input("Would you like to play a game? y/n:").lower().startswith('y')
 
 
+
+def get_int_1_to_9(prompt):
+    while True:
+        try:
+            value = int(raw_input(prompt))
+        except ValueError:
+            print("Sorry, I didn't understand that.")
+            continue
+
+        if value < 1 or value > 9:
+            print("Sorry, your response must be a number between 1 and 9.")
+            continue
+        else:
+            break
+    return value
+
+
+def get_str_x_or_o(prompt):
+    while True:
+        try:
+            value = str(raw_input(prompt)).lower()
+        except ValueError:
+            print("Sorry, I didn't understand that.")
+            continue
+
+        if value != 'x' and value != 'o':
+            print("Sorry, your response must be 'x' or 'o':")
+            continue
+        else:
+            break
+    return value
+
+
 while yes_lets_play():
     clear_the_board()
     print_board(my_board)
     while yes_lets_play:
-        x_or_o = raw_input("Enter either x or o:").lower()
-        position = raw_input("Enter position numnber [1-9]")
-        pos = int(position)
-        make_a_move(pos, x_or_o)
+        x_or_o = get_str_x_or_o("Enter either x or o:")
+        position = get_int_1_to_9("Enter position a number [1-9]:")
+        make_a_move(position, x_or_o)
         if game_over:
             break
 else:
     print 'Thanks for playing - have a nice day!'
+
