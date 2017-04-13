@@ -108,7 +108,11 @@ while yes_lets_play():
     while yes_lets_play:
         x_or_o = get_str_x_or_o("Enter either x or o:")
         position = get_int_1_to_9("Enter position a number [1-9]:")
-        make_a_move(position, x_or_o)
+        if my_board[position].strip() == '':
+            make_a_move(position, x_or_o)
+        else:
+            print 'That position has already been played - try again.'
+            continue
         if game_over:
             break
 else:
