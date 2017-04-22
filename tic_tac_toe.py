@@ -14,6 +14,7 @@ my_board = {1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' ', 7: ' ', 8: ' ', 9: '
 game_over = False
 
 import os
+from random import randint
 
 
 def print_board(v):
@@ -33,6 +34,15 @@ def make_a_move(location, value):
     print_board(my_board)
     check_game_status(my_board)
 
+
+def computer_make_a_move(value):
+    if value == 'x':
+        value = 'o'
+    else:
+        value = 'x'
+    my_board[randint(0,9)] = value
+    print_board(my_board)
+    check_game_status(my_board)
 
 def clear_the_board():
     for keys in my_board:
@@ -109,6 +119,7 @@ while yes_lets_play():
         position = get_int_1_to_9("Enter position a number [1-9]:")
         if my_board[position].strip() == '':
             make_a_move(position, x_or_o)
+            computer_make_a_move(x_or_o)
         else:
             print 'That position has already been played - try again.'
             continue
