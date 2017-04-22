@@ -24,15 +24,49 @@ Remember to you are free to use any resources you want and as always: HAVE FUN!
 
 
 class Deck(object):
-    def __init__(self):
+    cards = ['2 C', '3 C', '4 C', '5 C', '6 C', '7 C', '8 C', '9 C', '10 C', 'J C', 'Q C', 'K C', 'A C',
+             '2 H', '3 H', '4 H', '5 H', '6 H', '7 H', '8 H', '9 H', '10 H', 'J H', 'Q H', 'K H', 'A H',
+             '2 D', '3 D', '4 D', '5 D', '6 D', '7 D', '8 D', '9 D', '10 D', 'J D', 'Q D', 'K D', 'A D',
+             '2 S', '3 S', '4 S', '5 S', '6 S', '7 S', '8 S', '9 S', '10 S', 'J S', 'Q S', 'K S', 'A S']
+
+    def shuffle_deck(self):
+        from random import shuffle
+        shuffle(self.cards)
+
+    def deal_card(self):
+        return self.cards.pop(0)
+
+    def reset_deck(self):
         pass
 
-    def shuffle(self):
+
+class DisplayBoard(object):
+    def display_DealerHand(self):
+        pass
+
+    def displayPlayerHand(self):
+        pass
+
+    def display_player_bank(self):
+        pass
+
+    def display_player_bet(self):
         pass
 
 
 class Hand(object):
-    def __init__(self):
+    hand_value = 0
+
+    def deal_hand(self, deck):
+        for i in [0, 1]:
+            card = deck.deal_card()
+            print card
+
+    def set_hand_value(self, card):
+        if str(card).endswith('A'):
+            pass
+
+    def calculate_hand_value(self, cards):
         pass
 
 
@@ -51,4 +85,15 @@ class Player(object):
 
 
 my_deck = Deck()
-print my_deck
+my_deck.shuffle_deck()
+print my_deck.cards
+
+# for i in my_deck.cards:
+#     print i
+
+
+my_hand = Hand()
+print ' HAND'
+my_hand.deal_hand(my_deck)
+
+print my_deck.cards
